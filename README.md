@@ -1,4 +1,4 @@
-#Assumptions:
+# Assumptions:
 
 * Assuming a system which receive stream of events.
 
