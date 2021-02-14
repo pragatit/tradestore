@@ -36,6 +36,7 @@ public class TradeUpdateProcessor implements TradeProcessor {
     @Override
     @Transactional
     public void processTrade(Trade trade) {
+        LOGGER.trace("Update trade start");
         Optional<org.example.tradestore.entity.Trade> optionalTrade = tradeRepository.findById(trade.getTradeId());
         if(optionalTrade.isPresent()){
             List<TradeExceptionCode> tradeExceptionCodes = updateTradeValidators.stream()
@@ -46,5 +47,7 @@ public class TradeUpdateProcessor implements TradeProcessor {
         }
         org.example.tradestore.entity.Trade tradeEntity = tradeMapper.toTradeEntity(trade);
         tradeRepository.save(tradeEntity);
+        LOGGER.trace("Update trade ends");
+
     }
 }

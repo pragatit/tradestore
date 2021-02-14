@@ -1,9 +1,10 @@
-Assumptions:
-   
-* Version should always be greater than 0
+#Assumptions:
 
+* Assuming a system which receive an stream of events and call this microservice.
 
-Input event contract:
+* Input specification:
+
+    * Contract
 
                {
                     tradeId,
@@ -13,4 +14,10 @@ Input event contract:
                     maturityDate,
                }
  
- * createdDate and expiredFlag is not part of incoming message.
+    * createdDate and expiredFlag is not part of incoming message.
+    * Version should always be greater than 0
+ 
+ * Authentication and Authorization is not in scope.
+ 
+ 
+ 

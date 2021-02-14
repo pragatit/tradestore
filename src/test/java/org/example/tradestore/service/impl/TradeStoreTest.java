@@ -2,7 +2,7 @@ package org.example.tradestore.service.impl;
 
 import org.example.tradestore.processors.TradeProcessor;
 import org.example.tradestore.processors.impl.TradeUpdateProcessor;
-import org.example.tradestore.processors.impl.TradeValidateProcessor;
+import org.example.tradestore.processors.impl.TradeValidationProcessor;
 import org.example.tradestore.validators.InputTradeValidator;
 import org.example.tradestore.validators.UpdateTradeValidator;
 import org.example.tradestore.validators.impl.GeneralTradeValidator;
@@ -32,7 +32,7 @@ public class TradeStoreTest {
     @Test
     public void shouldCallProcessorsInSequence(){
         assertEquals(2, tradeProcessors.size());
-        assertTrue(tradeProcessors.get(0) instanceof TradeValidateProcessor);
+        assertTrue(tradeProcessors.get(0) instanceof TradeValidationProcessor);
         assertTrue(tradeProcessors.get(1) instanceof TradeUpdateProcessor);
     }
 

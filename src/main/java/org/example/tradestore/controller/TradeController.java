@@ -13,11 +13,12 @@ public class TradeController {
     @Autowired
     private TradeStoreService tradeStoreService;
 
+    /**
+     * @param trade Trade to be stored
+     */
     @PostMapping(value = "/trade")
     public void processTrade(@RequestBody Trade trade){
-
         tradeStoreService.initiateTradeStore(trade);
-
     }
 
 }

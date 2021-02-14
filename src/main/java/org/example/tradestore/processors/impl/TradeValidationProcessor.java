@@ -17,9 +17,9 @@ import java.util.stream.Collectors;
 
 @Component
 @Order(20)
-public class TradeValidateProcessor implements TradeProcessor {
+public class TradeValidationProcessor implements TradeProcessor {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(TradeValidateProcessor.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(TradeValidationProcessor.class);
 
     @Autowired
     private List<InputTradeValidator> tradeValidators;

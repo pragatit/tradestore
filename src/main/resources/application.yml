@@ -1,5 +1,7 @@
 logging.level.org.example.tradestore: TRACE
 server:
+  servlet:
+    context-path: /tradestore
   error:
     include-message: always
 spring:

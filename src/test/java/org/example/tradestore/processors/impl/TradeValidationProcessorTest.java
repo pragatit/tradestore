@@ -16,7 +16,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,7 +23,7 @@ import java.util.Date;
 import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
-public class TradeValidateProcessorTest {
+public class TradeValidationProcessorTest {
 
     @Mock
     private GeneralTradeValidator generalTradeValidator;
@@ -36,7 +35,7 @@ public class TradeValidateProcessorTest {
     private List<InputTradeValidator> validators = new ArrayList<InputTradeValidator>();
 
     @InjectMocks
-    private TradeValidateProcessor tradeValidateProcessor;
+    private TradeValidationProcessor tradeValidationProcessor;
 
     @BeforeEach
     public void init() {
@@ -51,7 +50,7 @@ public class TradeValidateProcessorTest {
         Trade trade = new Trade();
         trade.setTradeId("T1");
 
-        tradeValidateProcessor.processTrade(trade);
+        tradeValidationProcessor.processTrade(trade);
 
         verifyAllValidatorsInvoked(trade);
 
@@ -70,7 +69,7 @@ public class TradeValidateProcessorTest {
         Mockito.when(generalTradeValidator.validate(trade)).thenReturn(Arrays.asList(TradeExceptionCode.INVALID_TRADE_ID));
 
         try {
-            tradeValidateProcessor.processTrade(trade);
+            tradeValidationProcessor.processTrade(trade);
             Assertions.fail("Exception expected");
         } catch (TradeValidationException ex) {
             verifyAllValidatorsInvoked(trade);
@@ -95,7 +94,7 @@ public class TradeValidateProcessorTest {
 
 
         try {
-            tradeValidateProcessor.processTrade(trade);
+            tradeValidationProcessor.processTrade(trade);
             Assertions.fail("Exception expected");
         } catch (TradeValidationException ex) {
             verifyAllValidatorsInvoked(trade);
